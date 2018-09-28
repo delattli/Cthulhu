@@ -4,7 +4,8 @@
 	background: #e9e9e9;
 }
 .AddDetails__form{
-	background: #fcfcfc;
+	/*background: #fcfcfc;*/
+	background: #00ffff;/* for test */
 }
 .AddDetails_h2 {
 	text-align: center;
