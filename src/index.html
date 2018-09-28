@@ -12,15 +12,15 @@
 <body>
 <div class="AddDetails">
 	<div class="AddDetails__title">
-		<h2 class="AddDetails_h2">État civil</h2>
+		<h2 class="AddDetails_h2">&Eacute;tat civil</h2>
 	</div>
 	<div class="AddDetails__form">
 		<ul class="AddDetails_ul">
 			<li class="AddDetails_li"><label for="name">Nom </label><input id="name" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="player">Joueur </label><input id="player" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="occupation">Occupation </label></li>
-			<li class="AddDetails_li"><label for="age">Âge </label><label for="sex">Sexe </label></li>
-			<li class="AddDetails_li"><label for="residence">Résidence </label><input id="residence" type="text" value=""></li>
+			<li class="AddDetails_li"><label for="age">&Acirc;ge </label><label for="sex">Sexe </label></li>
+			<li class="AddDetails_li"><label for="residence">R&eacute;sidence </label><input id="residence" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="birthplace">Lieu de naissance </label><input id="birthplace" type="text" value=""></li>
 		</ul>
 	</div>
@@ -33,9 +33,6 @@
 		this.birhplace = document.getElementById("birhplace");
 		
 		var that = this;
-		/*this.name.onblur = function() {
-			that.getValue("name");	
-		};*/
 		this.name.addEventListener("blur", function() {
 			that.getValue("name");	
 		}, false);
