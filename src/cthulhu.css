@@ -1,6 +1,6 @@
 .AddDetails {
 }
-.AddDetails__title {
+.AddDetails__title, .Ch__title {
 	background: #e9e9e9;
 }
 .AddDetails__form{
@@ -9,7 +9,7 @@
 	border-bottom: 1px #000 solid;
 	border-right: 1px #000 solid;
 }
-.AddDetails_h2 {
+.AddDetails_h2, .Ch_h2 {
 	margin: 0;
 	padding-bottom: 10px;
 	padding-top: 5px;
