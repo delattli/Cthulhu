@@ -32,20 +32,27 @@
 </div>
 <script>
 	var Sheet = function() {
-		this.name = document.getElementById("name");
-		this.player = document.getElementById("player");
-		this.residence = document.getElementById("residence");
-		this.birhplace = document.getElementById("birhplace");
+		var inputsList = ["name", "player", "residence", "birthplace"],
+			that = this;
 		
-		var that = this;
-		this.name.addEventListener("blur", function() {
+		for (var i=0, len = inputsList.length; i < len; i+=1) {
+			var id = inputsList[i];
+
+			this[id] = document.getElementById(id);
+			this[id].addEventListener("blur", function(e) {
+				var src = e.target || e.srcElement;
+				that.getValue(src.id);	
+			}, false);
+		}
+
+		/*this.name.addEventListener("blur", function() {
 			that.getValue("name");	
-		}, false);
+		}, false);*/
 	};
 	Sheet.prototype = {
 		getValue : function(id) {
 			if (this[id].tagName === "INPUT") {
-				console.log(this [id].value);
+				console.log(this[id].value);
 			}
 		}
 	};
