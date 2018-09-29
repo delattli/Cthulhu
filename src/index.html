@@ -19,7 +19,8 @@
 			<li class="AddDetails_li"><label for="name">Nom </label><input id="name" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="player">Joueur </label><input id="player" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="occupation">Occupation </label></li>
-			<li class="AddDetails_li"><label for="age">&Acirc;ge </label><label for="sex">Sexe </label></li>
+			<li class="AddDetails_li"><label for="age">&Acirc;ge </label><label for="sex">Sexe</label>
+			<select id="sex"><option value="male">Masculin</option><option value="female">F&eacute;minin</option></select></li>
 			<li class="AddDetails_li"><label for="residence">R&eacute;sidence </label><input id="residence" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="birthplace">Lieu de naissance </label><input id="birthplace" type="text" value=""></li>
 		</ul>
@@ -31,33 +32,40 @@
 	</div>
 </div>
 <script>
-	var Sheet = function() {
-		var inputsList = ["name", "player", "residence", "birthplace"],
-			that = this;
-		
-		for (var i=0, len = inputsList.length; i < len; i+=1) {
-			var id = inputsList[i];
-
-			this[id] = document.getElementById(id);
-			this[id].addEventListener("blur", function(e) {
-				var src = e.target || e.srcElement;
-				that.getValue(src.id);	
-			}, false);
-		}
-
-		/*this.name.addEventListener("blur", function() {
-			that.getValue("name");	
-		}, false);*/
-	};
-	Sheet.prototype = {
-		getValue : function(id) {
-			if (this[id].tagName === "INPUT") {
-				console.log(this[id].value);
-			}
-		}
-	};
-
-	var sheet = new Sheet();
+var Sheet = function() {
+    "use strict";
+    var inputsList = ["name", "player", "residence", "birthplace"],
+        selectsList = ["sex"],
+        that = this,
+        i, len, id;
+    var listener = function(e) {
+        var src = e.target || e.srcElement;
+        that.getValue(src.id);
+    };
+    /* Génére la list des INPUTs et ajout du listener onblur */
+    len = inputsList.length;
+    for (i = 0; i < len; i += 1) {
+        id = inputsList[i];
+        this[id] = document.getElementById(id);
+        this[id].addEventListener("blur", listener, false);
+    }
+    /* Génére la liste des SELECTs et ajout du listener onchange */
+    len = selectsList.length;
+    for (i = 0; i < len; i += 1) {
+        id = selectsList[i];
+        this[id] = document.getElementById(id);
+        this[id].addEventListener("change", listener, false);
+    }
+};
+Sheet.prototype = {
+    getValue: function(id) {
+        "use strict";
+        if (this.hasOwnProperty(id)) {
+            console.log(this[id].value);
+        }
+    }
+};
+var sheet = new Sheet();
 </script>
 </body>
 </html>
