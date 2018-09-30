@@ -1,7 +1,7 @@
 var Sheet = function() {
     "use strict";
     var inputsList = ["name", "player", "residence", "birthplace"],
-        selectsList = ["age", "sex"],
+        selectsList = ["age", "occupation", "sex"],
         that = this,
         i, len, id;
     var listener = function(e) {

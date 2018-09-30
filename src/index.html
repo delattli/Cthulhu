@@ -18,7 +18,156 @@
 		<ul class="AddDetails_ul">
 			<li class="AddDetails_li"><label for="name">Nom </label><input id="name" type="text" value=""></li>
 			<li class="AddDetails_li"><label for="player">Joueur </label><input id="player" type="text" value=""></li>
-			<li class="AddDetails_li"><label for="occupation">Occupation </label></li>
+			<li class="AddDetails_li"><label for="occupation">Occupation</label>
+            <select id="occupation">
+                <option value="Acrobat">Acrobate</option>
+                <option value="FederalAgent">Agent f&eacute;d&eacute;ral</option>
+                <option value="Farmer">Agriculteur</option>
+                <option value="HospitalOrderly">Aide-soignant</option>
+                <option value="Alienist">Ali&eacute;niste [Classique]</option>
+                <option value="MountainClimber">Alpiniste</option>
+                <option value="Antiquarian">Antiquaire [Lovecraftienne]</option>
+                <option value="Archaeologist">Arch&eacute;ologue [Lovecraftienne]</option>
+                <option value="Architect">Architecte</option>
+                <option value="Craftsperson">Artisan</option>
+                <option value="Artist">Artiste plasticien</option>
+                <option value="Entertainer">Artiste sc&eacute;nique</option>
+                <option value="Athlete">Athl&egrave;te</option>
+                <option value="Lawyer">Avocat</option>
+                <option value="Bartender">Barman</option>
+                <option value="Outdoorsman">Baroudeur</option>
+                <option value="Librarian">Biblioth&eacute;caire [Lovecraftienne]</option>
+                <option value="BoxerWrestler">Boxeur/Lutteur</option>
+                <option value="Stuntman">Cascadeur</option>
+                <option value="BountyHunter">Chasseur de prime</option>
+                <option value="BigGameHunter">Chasseur professionnel</option>
+                <option value="Researcher">Chercheur</option>
+                <option value="Drifter">Clochard</option>
+                <optgroup label="Com&eacute;dien">
+                    <option value="FilmStar">Acteur de cin&eacute;ma</option>
+                    <option value="StageActor">Acteur de th&eacute;&acirc;tre</option>
+                </optgroup>
+                <option value="Shopkeeper">Commer&ccedil;ant</option>
+                <option value="Accountant">Comptable</option>
+                <optgroup label="Conducteur">
+                    <option value="Chauffeur">Chauffeur</option>
+                    <option value="TaxiDriver">Chauffeur de taxi</option>
+                    <option value="Driver">Routier</option>
+                </optgroup>
+                <option value="MuseumCurator">Conservateur</option>
+                <option value="ForeignCorrespondent">Correspondant</option>
+                <option value="Cowboy">Cow-boy</option>
+                <optgroup label="Criminel">
+                    <option value="Conman">Arnaqueur</option>
+                    <option value="BankRobber">Braqueur de banque</option>
+                    <option value="Burglar">Cambrioleur</option>
+                    <option value="Bootlegger">Contrebandier</option>
+                    <option value="Criminal">Criminel ind&eacute;pendant</option>
+                    <option value="Counterfeiter">Faussaire</option>
+                    <option value="GunMoll">Frangine [Classique]</option>
+                    <option value="StreetPunk">Petite frappe</option>
+                    <option value="Fence">Receleur</option>
+                    <option value="Smuggler">Trafiquant</option>
+                    <option value="Assassin">Tueur à gages</option>
+                    <option value="Thug">Voyou</option>
+                </optgroup>
+                <option value="Undertaker">Croque-mort</option>
+                <option value="Deprogrammer">D&eacute;programmeur [Moderne]</option>
+                <option value="AgencyDetective">D&eacute;tective d’agence</option>
+                <option value="PrivateInvestigator">D&eacute;tective priv&eacute;</option>
+                <option value="Dilettante">Dilettante [Lovecraftienne]</option>
+                <optgroup label="Domestique">
+                    <option value="Household">Domestique</option>
+                    <option value="Maid">Femme de chambre</option>
+                    <option value="Butler">Majordome</option>
+                    <option value="Valet">Valet de chambre</option>
+                </optgroup>
+                <option value="AnimalTrainer">Dresseur</option>
+                <option value="Author">&Eacute;crivain [Lovecraftienne]</option>
+                <option value="Editor">&Eeacute;diteur</option>
+                <optgroup label="Employ&eacute;">
+                    <option value="Executive">Cadre</option>
+                    <option value="SeniorManager">Directeur</option>
+                    <option value="Clerk">Employ&eacute;</option>
+                    <option value="MiddleManager">Manager</option>
+                </optgroup>
+                <option value="Spy">Espion</option>
+                <option value="StudentIntern">&Eacute;tudiant/Stagiaire</option>
+                <option value="Explorer">Explorateur [Classique]</option>
+                <option value="Zealot">Fanatique</option>
+                <optgroup label="Gangster">
+                    <option value="GangsterBoss">Chef mafieux</option>
+                    <option value="Gangster Underling">Mafieux</option>
+                </optgroup>
+                <option value="Zookeeper">Gardien de zoo</option>
+                <option value="GentlemanLady">Gentilhomme/Dame</option>
+                <option value="CultLeader">Gourou</option>
+                <option value="ElectedOfficial">Homme politique</option>
+                <option value="Nurse">Infirmier</option>
+                <optgroup label="Informaticien [Moderne]">
+                    <option value="ComputerProgrammer">Informaticien</option>
+                    <option value="Hacker">Pirate informatique</option>
+                    <option value="Technician">Technicien informatique</option>
+                </optgroup>
+                <option value="Engineer">Ing&eacute;nieur</option>
+                <option value="Gambler">Joueur professionnel</option>
+                <optgroup label="Journaliste [Lovecraftienne]">
+                    <option value="InvestigativeJournalist">Journaliste d’investigation</option>
+                    <option value="Reporter">Reporter</option>
+                </optgroup>
+                <option value="Judge">Juge</option>
+                <option value="LaboratoryAssistant">Laborantin</option>
+                <option value="BookDealer">Libraire</option>
+                <option value="AntiqueDealer">Marchand d’antiquit&eacute;s</option>
+                <optgroup label="Marin">
+                    <option value="SailorCommercial">Marine marchande</option>
+                    <option value="SailorNaval">Marine militaire</option>
+                </optgroup>
+                <option value="Mechanic">M&eacute;canicien</option>
+                <option value="DoctorofMedicine">M&eacute;decin [Lovecraftienne]</option>
+                <option value="ForensicSurgeon">M&eacute;decin l&eacute;giste</option>
+                <option value="Missionary">Missionnaire</option>
+                <option value="Musician">Musicien</option>
+                <option value="Occultist">Occultiste [Lovecraftienne]</option>
+                <option value="MilitaryOfficer">Officier</option>
+                <optgroup label="Ouvrier">
+                    <option value="Lumberjack">B&ucirc;cheron</option>
+                    <option value="Miner">Mineur</option>
+                    <option value="LaborerUnskilled">Ouvrier non qualifi&eacute;</option>
+                </optgroup>
+                <option value="Parapsychologist">Parapsychologue</option>
+                <option value="Pharmacist">Pharmacien</option>
+                <optgroup label="Photographe">
+                    <option value="Photographer">Photographe</option>
+                    <option value="Photojournalist">Photojournaliste</option>
+                </optgroup>
+                <optgroup label="Pilote">
+                    <option value="Aviator">Aviateur [Classique]</option>
+                    <option value="Pilot">Pilote</option>
+                </optgroup>
+                <option value="Diver">Plongeur</option>
+                <optgroup label="Policier [Lovecraftienne]">
+                    <option value="PoliceDetective">Inspecteur</option>
+                    <option value="UniformedPoliceOfficer">Policier</option>
+                </optgroup>
+                <option value="Firefighter">Pompier</option>
+                <option value="Professor">Professeur [Lovecraftienne]</option>
+                <option value="Prospector">Prospecteur</option>
+                <option value="Prostitute">Prostitu&eacute;e</option>
+                <option value="Psychiatrist">Psychiatre</option>
+                <option value="PsychologistPsychoanalyst">Psychologue/Psychanalyste</option>
+                <option value="Clergy">Religieux</option>
+                <option value="TribeMember">Sauvage</option>
+                <option value="Scientist">Scientifique</option>
+                <option value="Secretary">Secr&eacute;taire</option>
+                <option value="Waitress">Serveuse</option>
+                <option value="Soldier">Soldat</option>
+                <option value="Designer">Styliste</option>
+                <option value="AsylumAttendant">Surveillant d’asile</option>
+                <option value="UnionActivist">Syndicaliste</option>
+                <option value="Hobo">Vagabond</option>
+                <option value="Salesperson">Vendeur</option>
+            </select></li>
 			<li class="AddDetails_li"><label for="age">&Acirc;ge </label>
             <select id="age">
                 <option value="15">15</option><option value="16">16</option><option value="17">17</option>
