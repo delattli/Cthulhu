@@ -1,33 +1,29 @@
+var getID = function(id) {
+    return document.getElementById(id);
+};
 var Sheet = function() {
     "use strict";
-    var inputsList = ["name", "player", "residence", "birthplace"],
-        selectsList = ["age", "occupation", "sex"],
-        that = this,
-        i, len, id;
-    var listener = function(e) {
-        var src = e.target || e.srcElement;
-        that.getValue(src.id);
-    };
-    /* Génére la list des INPUTs et ajout du listener onblur */
-    len = inputsList.length;
-    for (i = 0; i < len; i += 1) {
-        id = inputsList[i];
-        this[id] = document.getElementById(id);
-        this[id].addEventListener("blur", listener, false);
-    }
-    /* Génére la liste des SELECTs et ajout du listener onchange */
-    len = selectsList.length;
-    for (i = 0; i < len; i += 1) {
-        id = selectsList[i];
-        this[id] = document.getElementById(id);
-        this[id].addEventListener("change", listener, false);
-    }
+    this.createLinksForms().active();
 };
 Sheet.prototype = {
-    getValue: function(id) {
-        "use strict";
-        if (this.hasOwnProperty(id)) {
-            console.log(this[id].value);
-        }
-    }
+    createLinksForms: function() {
+        this.name = getID("name");
+        this.player = getID("player");
+        this.residence = getID("residence");
+        this.birthplace = getID("birthplace");
+        this.age = getID("age");
+        this.occupation = getID("occupation");
+        this.sex = getID("sex");
+        
+        return this;
+    },
+    active: function() {
+        this.name.addEventListener("blur", this.valueChange.bind(this, this.name),false);
+        this.player.addEventListener("blur", this.valueChange.bind(this, this.player),false);
+        
+        return this;
+    },
+    valueChange: function(id) {
+      console.log(id.value);
+    },
 };
