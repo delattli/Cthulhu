@@ -28,6 +28,17 @@
 .Ch__form {
 	background: #fcfcfc;
 }
-.Ch_td {
-	
+.Ch_td-name {
+	font: bold 1.4em Arial, Helvetica, Verdana, sans-serif;
+}
+.Ch_table-values {
+	border-collapse: collapse;
+}
+.Ch_td-values {
+	border: 1px solid black;
+}
+.Ch_btn {
+	font: inherit;
+	border: none;
+	background: #fff;
 }
