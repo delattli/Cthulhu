@@ -214,7 +214,7 @@
                 <td>
                     <table class="Ch_table-values">
                         <tr>
-                           <td rowspan="2" class="Ch_td-values"><button class="Ch_btn">00</button></td>
+                           <td rowspan="2" class="Ch_td-values"><button id="STR" class="Ch_btn Ch_btn-actif">00</button></td>
                            <td class="Ch_td-values">00</td>
                         </tr>
                         <tr>
@@ -266,7 +266,7 @@
                 <td>
                     <table class="Ch_table-values">
                         <tr>
-                           <td rowspan="2" class="Ch_td-values"><button class="Ch_btn">00</button></td>
+                           <td rowspan="2" class="Ch_td-values"><button class="Ch_btn Ch_btn-disabled" disabled="disabled">00</button></td>
                            <td class="Ch_td-values">00</td>
                         </tr>
                         <tr>
@@ -361,9 +361,16 @@
 		<h2 class="Skills_h2">Comp&eacute;tences de l’Investigateur</h2>
 	</div>
 </div>
+<div id="Chedit" class="modal"></div>
 <script>
 var sheet = new Sheet(),
     adddetails = new AddDetailsChange(sheet);
+var str = document.getElementById("STR");
+str.addEventListener("click", function() {
+        console.log("str");
+        var modal = document.getElementById("Chedit");
+        modal.classList.add("modal-active");
+    }, false);
 </script>
 </body>
 </html>
