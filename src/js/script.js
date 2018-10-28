@@ -1,17 +1,17 @@
 /* Générique Tools Helper */
-var Tools = {
-    getID : function(id) {
+class Tools {
+    static getID(id) {
         return document.getElementById(id);
     }
-};
-var Event = function() {
-    this.listeners = [];
-};
-Event.prototype = {
-    addListener: function(listener) {
+}
+class EventDeleg {
+    constructor() {
+        this.listeners = [];
+    }
+    addListener(listener) {
         this.listeners.push(listener);
-    },
-    notify: function(args) {
+    }
+    notify(args) {
         var len = this.listeners.length, i;
         if (len > 0) {
             for (i = 0; i < len; i += 1) {
@@ -19,11 +19,11 @@ Event.prototype = {
             }
         }
     }
-};
+}
 /* Sheet Manipulation */
 var Sheet = function() {
     "use strict";
-    this.addDetailsEvent = new Event();
+    this.addDetailsEvent = new EventDeleg();
     
     this.createLinksForms().active();
 };
