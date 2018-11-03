@@ -4,6 +4,7 @@ class Tools {
         return document.getElementById(id);
     }
 }
+/* Gestion des événements */
 class EventDeleg {
     constructor() {
         this.listeners = [];
@@ -21,14 +22,13 @@ class EventDeleg {
     }
 }
 /* Sheet Manipulation */
-var Sheet = function() {
-    "use strict";
-    this.addDetailsEvent = new EventDeleg();
-    
-    this.createLinksForms().active();
-};
-Sheet.prototype = {
-    createLinksForms: function() {
+class Sheet {
+    constructor() {
+        this.addDetailsEvent = new EventDeleg();
+        
+        this.createLinksForms().active();
+    }
+    createLinksForms() {
         this.name = Tools.getID("name");
         this.player = Tools.getID("player");
         this.residence = Tools.getID("residence");
@@ -38,8 +38,8 @@ Sheet.prototype = {
         this.sex = Tools.getID("sex");
         
         return this;
-    },
-    active: function() {
+    }
+    active() {
         this.name.addEventListener("blur", this.valueChange.bind(this, this.name),false);
         this.player.addEventListener("blur", this.valueChange.bind(this, this.player),false);
         this.residence.addEventListener("blur", this.valueChange.bind(this, this.residence),false);
@@ -49,22 +49,23 @@ Sheet.prototype = {
         this.occupation.addEventListener("change", this.valueChange.bind(this, this.occupation),false);
         
         return this;
-    },
-    valueChange: function(id) {
+    }
+    valueChange(id) {
         this.addDetailsEvent.notify({key:id.id, value:id.value});
         /*console.log(id.id + " " + id.value);*/
     }
-};
-var AddDetailsChange = function(view) {
-    this.view = view;
+}
+/* Controleur */
+class AddDetailsChange {
+    constructor(view) {
+        this.view = view;
     
-    view.addDetailsEvent.addListener(this.updateValue.bind(this));
-};
-AddDetailsChange.prototype = {
-    updateValue: function(args) {
+        view.addDetailsEvent.addListener(this.updateValue.bind(this));
+    }
+    updateValue(args) {
         var value = args.value.trim();
         if (value !== "") {
             console.log(args.key + " : " + value);
         }
     }
-};
+}
