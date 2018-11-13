@@ -37,6 +37,10 @@ class Sheet {
         this.occupation = Tools.getID("occupation");
         this.sex = Tools.getID("sex");
         
+        this.chedit = Tools.getID("Chedit");
+        this.chedit_close = Tools.getID("Chedit_close");
+        this.chedit_cancel = Tools.getID("Chedit_cancel");
+        
         return this;
     }
     active() {
@@ -49,6 +53,13 @@ class Sheet {
         this.occupation.addEventListener("change", this.valueChange.bind(this, this.occupation),false);
         
         return this;
+    }
+    showEditCh() {
+        this.chedit.classList.add("modal-active");
+    }
+    hideEditCh(e) {
+        e.preventDefault();
+        this.chedit.classList.remove("modal-active");
     }
     valueChange(id) {
         this.addDetailsEvent.notify({key:id.id, value:id.value});
