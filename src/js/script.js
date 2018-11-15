@@ -37,22 +37,41 @@ class Sheet {
         this.occupation = Tools.getID("occupation");
         this.sex = Tools.getID("sex");
         
-        return this;
-    }
-    active() {
-        this.name.addEventListener("blur", this.valueChange.bind(this, this.name),false);
-        this.player.addEventListener("blur", this.valueChange.bind(this, this.player),false);
-        this.residence.addEventListener("blur", this.valueChange.bind(this, this.residence),false);
-        this.birthplace.addEventListener("blur", this.valueChange.bind(this, this.birthplace),false);
-        this.age.addEventListener("change", this.valueChange.bind(this, this.age),false);
-        this.sex.addEventListener("change", this.valueChange.bind(this, this.sex),false);
-        this.occupation.addEventListener("change", this.valueChange.bind(this, this.occupation),false);
+        this.chedit = {
+            root : Tools.getID("Chedit"),
+            close : Tools.getID("Chedit_close"),
+            cancel : Tools.getID("Chedit_cancel")
+        };
         
         return this;
     }
+    active() {
+        this.name.addEventListener("blur", this.valueChange.bind(this, this.name), false);
+        this.player.addEventListener("blur", this.valueChange.bind(this, this.player), false);
+        this.residence.addEventListener("blur", this.valueChange.bind(this, this.residence), false);
+        this.birthplace.addEventListener("blur", this.valueChange.bind(this, this.birthplace), false);
+        this.age.addEventListener("change", this.valueChange.bind(this, this.age), false);
+        this.sex.addEventListener("change", this.valueChange.bind(this, this.sex), false);
+        this.occupation.addEventListener("change", this.valueChange.bind(this, this.occupation), false);
+        
+        /* Fenêtre édition des charactéristiques */
+        let chedit = this.chedit;
+        chedit.close.addEventListener("click", this.hideEditCh.bind(this), false);
+        chedit.cancel.addEventListener("click", this.hideEditCh.bind(this), false);
+        
+        return this;
+    }
+    showEditCh() {
+        let root = this.chedit.root;
+        root.classList.add("modal-active");
+    }
+    hideEditCh(e) {
+        let root = this.chedit.root;
+        e.preventDefault();
+        root.classList.remove("modal-active");
+    }
     valueChange(id) {
         this.addDetailsEvent.notify({key:id.id, value:id.value});
-        /*console.log(id.id + " " + id.value);*/
     }
 }
 /* Controleur */
