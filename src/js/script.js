@@ -37,11 +37,17 @@ class Sheet {
         this.occupation = Tools.getID("occupation");
         this.sex = Tools.getID("sex");
         
+<<<<<<< HEAD
         this.chedit = {
             root : Tools.getID("Chedit"),
             close : Tools.getID("Chedit_close"),
             cancel : Tools.getID("Chedit_cancel")
         };
+=======
+        this.chedit = Tools.getID("Chedit");
+        this.chedit_close = Tools.getID("Chedit_close");
+        this.chedit_cancel = Tools.getID("Chedit_cancel");
+>>>>>>> f0358f744e12006da506016c56a4c966407458b0
         
         return this;
     }
@@ -62,6 +68,7 @@ class Sheet {
         return this;
     }
     showEditCh() {
+<<<<<<< HEAD
         let root = this.chedit.root;
         root.classList.add("modal-active");
     }
@@ -69,6 +76,13 @@ class Sheet {
         let root = this.chedit.root;
         e.preventDefault();
         root.classList.remove("modal-active");
+=======
+        this.chedit.classList.add("modal-active");
+    }
+    hideEditCh(e) {
+        e.preventDefault();
+        this.chedit.classList.remove("modal-active");
+>>>>>>> f0358f744e12006da506016c56a4c966407458b0
     }
     valueChange(id) {
         this.addDetailsEvent.notify({key:id.id, value:id.value});
