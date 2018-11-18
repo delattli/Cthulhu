@@ -36,19 +36,7 @@ class Sheet {
         this.age = Tools.getID("age");
         this.occupation = Tools.getID("occupation");
         this.sex = Tools.getID("sex");
-        
-<<<<<<< HEAD
-        this.chedit = {
-            root : Tools.getID("Chedit"),
-            close : Tools.getID("Chedit_close"),
-            cancel : Tools.getID("Chedit_cancel")
-        };
-=======
-        this.chedit = Tools.getID("Chedit");
-        this.chedit_close = Tools.getID("Chedit_close");
-        this.chedit_cancel = Tools.getID("Chedit_cancel");
->>>>>>> f0358f744e12006da506016c56a4c966407458b0
-        
+
         return this;
     }
     active() {
@@ -59,33 +47,72 @@ class Sheet {
         this.age.addEventListener("change", this.valueChange.bind(this, this.age), false);
         this.sex.addEventListener("change", this.valueChange.bind(this, this.sex), false);
         this.occupation.addEventListener("change", this.valueChange.bind(this, this.occupation), false);
-        
-        /* Fenêtre édition des charactéristiques */
-        let chedit = this.chedit;
-        chedit.close.addEventListener("click", this.hideEditCh.bind(this), false);
-        chedit.cancel.addEventListener("click", this.hideEditCh.bind(this), false);
-        
+
         return this;
-    }
-    showEditCh() {
-<<<<<<< HEAD
-        let root = this.chedit.root;
-        root.classList.add("modal-active");
-    }
-    hideEditCh(e) {
-        let root = this.chedit.root;
-        e.preventDefault();
-        root.classList.remove("modal-active");
-=======
-        this.chedit.classList.add("modal-active");
-    }
-    hideEditCh(e) {
-        e.preventDefault();
-        this.chedit.classList.remove("modal-active");
->>>>>>> f0358f744e12006da506016c56a4c966407458b0
     }
     valueChange(id) {
         this.addDetailsEvent.notify({key:id.id, value:id.value});
+    }
+}
+/* Modal Box */
+class ModalWindow {
+    constructor() {
+        this.root = document.createElement("div");
+        this.root.classList.add("modal");
+        
+        this.block = document.createElement("div");
+        this.block.classList.add("modal__block");
+        
+        this.title = document.createElement("div");
+        this.title.classList.add("modal__title");
+        this.title.innerHTML = "Modificateur d'&acirc;ge";
+        
+        this.content = document.createElement("div");
+        this.content.classList.add("modal__line");
+        let content = "Caract&eacute;ristique : <span id=\"charac_name\" class=\"modal__info\">Force</span><br>";
+        content += "Valeur actuelle : <span id=\"old_value\" class=\"modal__info\">50</span><br>";
+        content += "Nouvelle valeur : <select id=\"modal_value\">";
+        content += "<option value=\"50\">50</option><option value=\"49\">49</option><option value=\"48\">48</option>";
+        content += "<option value=\"47\">47</option><option value=\"46\">46</option><option value=\"45\">45</option>";
+        content += "</select>";
+        this.content.innerHTML = content;
+        
+        this.buttons = document.createElement("div");
+        this.buttons.classList.add("modal__buttons");
+        
+        this.button_ok = document.createElement("button");
+        this.button_ok.classList.add("modal__buttons_button-first");
+        this.button_ok.innerHTML = "OK";
+        
+        this.button_cancel = document.createElement("button");
+        this.button_cancel.innerHTML = "ANNULER";
+        
+        this.buttons.appendChild(this.button_ok);
+        this.buttons.appendChild(this.button_cancel);
+        
+        this.block.appendChild(this.title);
+        this.block.appendChild(this.content);
+        this.block.appendChild(this.buttons);
+        this.root.appendChild(this.block);
+        
+        var objBody = document.getElementsByTagName("body").item(0);
+        objBody.appendChild(this.root);
+        
+        let hide = this.hide.bind(this);
+        this.root.addEventListener("click", hide);
+        this.button_cancel.addEventListener("click", hide);
+        this.button_ok.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("Ok");
+        });
+    }
+    show() {
+        this.root.classList.add("modal-active");
+    }
+    hide(e) {
+        e.preventDefault();
+        this.root.classList.remove("modal-active");
     }
 }
 /* Controleur */

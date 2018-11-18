@@ -361,31 +361,12 @@
 		<h2 class="Skills_h2">Comp&eacute;tences de l’Investigateur</h2>
 	</div>
 </div>
-<div id="Chedit" class="modal">
-    <div class="modal__block">
-        <div class="modal__title">
-            Modificateur d'&acirc;ge<a id="Chedit_close" href="#close" class="modal__close">X</a>
-        </div>
-        <div class="modal__line">Caractéristique : <span id="charac_name" class="modal__info">Force</span></div>
-        <div class="modal__line">Valeur actuelle : <span id="old_value" class="modal__info">50</span></div>
-        <div class="modal__line">Nouvelle valeur : <select id="modal_value">
-            <option value="50">50</option>
-            <option value="49">49</option>
-            <option value="48">48</option>
-            <option value="47">47</option>
-            <option value="46">46</option>
-            <option value="45">45</option>
-        </select></div>
-        <div class="modal__buttons"><button class="modal__buttons_button-first">OK</button> <button id="Chedit_cancel">ANNULER</button></div>
-    </div>    
-</div>
 <script>
 var sheet = new Sheet(),
     adddetails = new AddDetailsChange(sheet);
-var str = document.getElementById("STR");
-str.addEventListener("click", function() {
-		sheet.showEditCh();
-    }, false);
+var str = document.getElementById("STR"),
+	modal = new ModalWindow();
+str.addEventListener("click", modal.show.bind(modal), false);
 </script>
 </body>
 </html>

@@ -47,6 +47,7 @@
 .Ch_btn-disabled {
 	color: #000;
 }
+/* Modal window */
 .modal {
 	position: fixed;
 	top: 0;
@@ -55,6 +56,8 @@
 	display: none;
 	width: 100%;
 	height: 100%;
+	overflow: auto;
+	background-color: rgba(64, 66, 58);
 	background-color: rgba(64, 66, 58, 0.6);
 }
 .modal__block {
@@ -78,21 +81,11 @@
 	text-align: center;
 	background-color: #f2f2f2;
 }
-.modal__close {
-	position: absolute;
-	top: 3px;
-	right: 5px;
-	font-family: sans-serif;
-	text-decoration: none;
-}
 .modal__info {
 	font-style: italic;
 }
 .modal__line {
 	padding-bottom: 10px;
-}
-.modal a:link, .modal a:visited {
-	color: black;
 }
 .modal__buttons {
 	text-align: center;
